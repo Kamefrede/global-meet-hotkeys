@@ -21,5 +21,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: global-meet-hotkeys-${{ github.ref_name }}-chrome.zip
-          path: release/
+          name: global-meet-hotkeys-${{ github.ref_name }}-chrome
+          path: release/**/*
