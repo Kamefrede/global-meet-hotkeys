@@ -13,13 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create ZIP file
+      - name: Copy relevant files
         run: |
           mkdir -p release
-          zip -r release/${{ github.ref_name }}-chrome.zip src manifest.json
+          cp -r src manifest.json release
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.ref_name }}-chrome.zip
-          path: release/${{ github.ref_name }}-chrome.zip
+          name: global-meet-hotkeys-${{ github.ref_name }}-chrome.zip
+          path: release/
