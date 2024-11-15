@@ -1,0 +1,25 @@
+name: Chrome Web Store Build
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  chrome-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create ZIP file
+        run: |
+          mkdir -p release
+          zip -r release/${GITHUB_REF_NAME}-chrome.zip src manifest.json
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${GITHUB_REF_NAME}-chrome.zip
+          path: release/${GITHUB_REF_NAME}-chrome.zip
