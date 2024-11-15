@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+
+# ignore node dependency directories & lock
+node_modules
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
+
+# ignore ide settings
+.idea
+.vscode
+
+# dotfiles
+.prettierrc
+jsconfig.json

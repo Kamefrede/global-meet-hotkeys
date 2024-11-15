@@ -1,0 +1,39 @@
+{
+  "name": "Global Google Meet Hotkeys",
+  "description": "A simple extension that allows you to toggle your microphone and camera globally.",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["src/main.js"],
+      "type": "module"
+    }
+  ],
+  "web_accessible_resources": [{
+     "matches": ["https://meet.google.com/*"],
+     "resources": ["src/common.js"]
+   }],
+  "background": {
+    "service_worker": "src/serviceWorker.js",
+    "type": "module"
+  },
+  "commands": {
+    "toggleMic": {
+      "suggested_key": "Alt+Shift+M",
+      "description": "Toggles the mute on the microphone",
+      "global": true
+    },
+    "toggleCamera": {
+      "suggested_key": "Alt+Shift+C",
+      "description": "Toggles the camera on and off",
+      "global": true
+    },
+    "focusMeet": {
+      "suggested_key": "Alt+Shift+F",
+      "description": "Switches to the current meet tab",
+      "global": true
+    }
+  }
+}
