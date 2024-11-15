@@ -16,10 +16,10 @@ jobs:
       - name: Copy relevant files
         run: |
           mkdir -p release
-          cp -r src manifest.json release
+          cp -r src icons manifest.json release
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: global-meet-hotkeys-${{ github.ref_name }}-chrome
-          path: release/**/*
+          path: release/*
