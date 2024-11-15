@@ -26,17 +26,23 @@
   },
   "commands": {
     "toggleMic": {
-      "suggested_key": "Ctrl+Shift+M",
+      "suggested_key": {
+        "default": "Ctrl+Shift+3"
+      },
       "description": "Toggles the mute on the microphone",
       "global": true
     },
     "toggleCamera": {
-      "suggested_key": "Ctrl+Shift+C",
+      "suggested_key": {
+        "default": "Ctrl+Shift+2"
+      },
       "description": "Toggles the camera on and off",
       "global": true
     },
     "focusMeet": {
-      "suggested_key": "Ctrl+Shift+F",
+      "suggested_key": {
+        "default": "Ctrl+Shift+1"
+      },
       "description": "Switches to the current meet tab",
       "global": true
     }
