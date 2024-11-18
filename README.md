@@ -31,7 +31,7 @@ Soon.
 
 ## Firefox
 
-Maybe?
+Soon. Important note however is that [Firefox currently does not support global hotkeys](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands).
 
 ## Safari
 

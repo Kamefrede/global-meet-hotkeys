@@ -54,4 +54,17 @@ export const error = (message) => {
   console.log(`[google-meet-hotkeys] ${message}`);
 };
 
+/**
+ *
+ * @returns {typeof browser}
+ */
+
+export const getBrowser = () => {
+  if (typeof browser === 'undefined') {
+    // @ts-ignore
+    return chrome;
+  }
+  return browser;
+};
+
 export const DEBOUNCE_INTERVAL_MS = 200;

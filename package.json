@@ -1,13 +1,14 @@
 {
   "name": "global-meet-hotkeys",
   "displayName": "Global Google Meet Hotkeys",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Emanuel Ferraz (Kamefrede)",
-  "description": " Chrome extension that provides global hotkeys for Google Meet",
+  "description": "A browser extension that provides global hotkeys for Google Meet",
   "type": "module",
   "license": "MIT",
   "scripts": {},
   "devDependencies": {
+    "@types/firefox-webext-browser": "^120.0.4",
     "chrome-types": "^0.1.321"
   }
 }

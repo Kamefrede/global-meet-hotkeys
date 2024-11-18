@@ -1,7 +1,21 @@
 'use strict';
 
+/**
+ *
+ * @returns {typeof browser}
+ */
+
+const getBrowser = () => {
+  if (typeof browser === 'undefined') {
+    // @ts-ignore
+    return chrome;
+  }
+  return browser;
+};
+
 (async () => {
-  const src = chrome.runtime.getURL('src/common.js');
+  const browser = getBrowser();
+  const src = browser.runtime.getURL('src/common.js');
 
   /**
    *  @type {typeof import('src/common.js')}
@@ -19,7 +33,7 @@
   /**
    * @callback  Listener
    * @param {Message} message - The message received.
-   * @param {chrome.runtime.MessageSender} sender - The sender of the message.
+   * @param {browser.runtime.MessageSender} sender - The sender of the message.
    * @param {function(): void} sendResponse - Function to send a response.
    * @returns {boolean | undefined}
    */
@@ -48,7 +62,7 @@
 
     observer.disconnect();
 
-    chrome.runtime.sendMessage(chrome.runtime.id, {
+    browser.runtime.sendMessage(browser.runtime.id, {
       type: MESSAGE_TYPE_ENUM.SET_MEET_TAB,
     });
 
@@ -82,7 +96,7 @@
       observer.disconnect();
 
       for (const listener of listeners) {
-        chrome.runtime.onMessage.removeListener(listener);
+        browser.runtime.onMessage.removeListener(listener);
       }
 
       log('Disconnected from meeting!');
@@ -109,7 +123,7 @@
       sendResponse();
 
       if (
-        sender.id == chrome.runtime.id &&
+        sender.id == browser.runtime.id &&
         message?.type === MESSAGE_TYPE_ENUM.TOGGLE &&
         message?.value === name
       ) {
@@ -119,7 +133,7 @@
       return false;
     };
 
-    chrome.runtime.onMessage.addListener(listener);
+    browser.runtime.onMessage.addListener(listener);
 
     return listener;
   };

@@ -1,0 +1,26 @@
+name: Mozzila Addon Store Build
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  chrome-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy relevant files
+        run: |
+          mkdir -p release
+          cp -r src icons manifest-mozzila.json release
+          mv release/manifest-mozzila.json release/manifest.json
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: global-meet-hotkeys-${{ github.ref_name }}-mozzila
+          path: release/*
