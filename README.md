@@ -21,6 +21,11 @@ This extension was born out of personal frustration with the limitations of the 
 3. Join a Google Meet session
 4. Use the global hotkeys to control your meeting
 
+## Important Note
+
+When loading the extension as an unpacked extension in chrome the global-ness of the shortcuts gets disabled.
+You can manually set them back by going to `chrome://extensions/shortcuts` and setting the three shortcuts to Global.
+
 ## License
 
 MIT License
