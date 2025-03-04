@@ -10,7 +10,8 @@ This extension was born out of personal frustration with the limitations of the 
 
 - **Global Microphone Toggle** - Quick mute/unmute with `Ctrl+Shift+1`
 - **Global Camera Toggle** - Turn camera on/off with `Ctrl+Shift+2`
-- **Quick Meet Focus** - Switch to your Meet tab instantly with `Ctrl+Shift+3`
+- **Quick Meet Focus** - Switch to your Meet tab instantly with `Ctrl+Shift+6`
+- **Jump to Bookmarked Meet** - Set your current meet as a bookmark with `Ctrl+Shift+7` and quickly open it anytime with the same hotkey.
 - **Simple and Lightweight** - No bloat, just the essential controls you need
 - **Works Everywhere** - Control your Meet session from any application
 
