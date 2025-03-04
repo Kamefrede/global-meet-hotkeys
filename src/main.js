@@ -49,7 +49,7 @@ const getBrowser = () => {
      * @type {NodeListOf<HTMLButtonElement>}
      */
 
-    const muteButtons = document.querySelectorAll('button[data-mute-button]');
+    const muteButtons = document.querySelectorAll('button[data-is-muted]');
 
     if (muteButtons.length < 2) {
       return;
@@ -87,7 +87,7 @@ const getBrowser = () => {
 
   const setupMeetingDisconnectObserver = (listeners) => {
     const observer = new MutationObserver(() => {
-      const muteButtons = document.querySelectorAll('button[data-mute-button]');
+      const muteButtons = document.querySelectorAll('button[data-is-muted]');
 
       if (muteButtons.length !== 0) {
         return;

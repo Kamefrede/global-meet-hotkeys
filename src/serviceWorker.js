@@ -23,6 +23,11 @@ browser.commands.onCommand.addListener(async (command) => {
           value: TOGGLE_MESSAGE_VALUE_ENUM.CAMERA,
         });
       case COMMANDS_ENUM.FOCUS_MEET:
+        if(!meetTab.windowId) {
+          return;
+        }
+
+        await browser.windows.update(meetTab.windowId, { focused: true });;
         return browser.tabs.highlight({ windowId: meetTab.windowId, tabs: [meetTab.index] });
       default:
         error(`invalid command ${command} received`);
