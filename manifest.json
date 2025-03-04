@@ -2,7 +2,7 @@
   "name": "Global Google Meet Hotkeys",
   "description": "A simple extension that allows you to toggle your microphone and camera globally.",
   "manifest_version": 3,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "permissions": ["storage"],
   "browser_specific_settings": {
     "gecko": {
