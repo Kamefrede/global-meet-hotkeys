@@ -2,6 +2,7 @@ export const COMMANDS_ENUM = {
   TOGGLE_MIC: 'toggleMic',
   TOGGLE_CAMERA: 'toggleCamera',
   FOCUS_MEET: 'focusMeet',
+  JUMP_TO_BOOKMARKED_MEET: "jumpToBookmarkedMeet"
 };
 
 export const MESSAGE_TYPE_ENUM = {

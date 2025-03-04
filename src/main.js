@@ -101,7 +101,7 @@ const getBrowser = () => {
 
       log('Disconnected from meeting!');
 
-      setTimeout(() => initializeExtension, 500);
+      setTimeout(initializeExtension, 500);
 
       return;
     });

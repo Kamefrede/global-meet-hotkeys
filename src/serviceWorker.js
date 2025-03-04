@@ -6,12 +6,31 @@ browser.commands.onCommand.addListener(async (command) => {
   const meetTab = await getMeetTab();
 
   if (meetTab === undefined || meetTab.id === undefined || meetTab.sessionId !== undefined) {
+    if(command === COMMANDS_ENUM.JUMP_TO_BOOKMARKED_MEET) {
+      const bookmarkedMeetUrl = await getbookmarkedMeetUrl();
+
+      if(!bookmarkedMeetUrl) {
+        error('failed to go to bookmarked meet url, none is defined');
+        return;
+      }
+
+      const meetTab = await browser.tabs.create({ url: bookmarkedMeetUrl, active: true });
+
+      if(!meetTab.windowId) {
+        return;
+      }
+
+      return browser.windows.update(meetTab.windowId, { focused: true });;
+    }
+
     error('no meet tabs currently open');
     return;
   }
 
   if (browser.runtime.onMessage)
     switch (command) {
+      case COMMANDS_ENUM.JUMP_TO_BOOKMARKED_MEET:
+        return browser.storage.local.set({ bookmarkedMeetUrl: meetTab.url })
       case COMMANDS_ENUM.TOGGLE_MIC:
         return browser.tabs.sendMessage(meetTab.id, {
           type: MESSAGE_TYPE_ENUM.TOGGLE,
@@ -68,4 +87,19 @@ const getMeetTab = async () => {
   } catch (e) {
     return;
   }
+};
+
+/**
+ *
+ * @returns {Promise<string | undefined>}
+ */
+
+const getbookmarkedMeetUrl = async () => {
+  const { bookmarkedMeetUrl } = await browser.storage.local.get(['bookmarkedMeetUrl']);
+
+  if (!bookmarkedMeetUrl) {
+    return;
+  }
+
+  return bookmarkedMeetUrl;
 };

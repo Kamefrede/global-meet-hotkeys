@@ -2,8 +2,8 @@
     "name": "Global Google Meet Hotkeys",
     "description": "A simple extension that allows you to toggle your microphone and camera globally.",
     "manifest_version": 3,
-    "version": "1.2.0",
-    "permissions": ["storage"],
+    "version": "1.3.0",
+    "permissions": ["storage", "tabs"],
     "browser_specific_settings": {
       "gecko": {
         "id": "global-meet-hotkeys@kamefrede.xyz",
@@ -52,6 +52,14 @@
           "mac": "MacCtrl+Shift+6"
         },
         "description": "Switches to the current meet tab",
+        "global": true
+      },
+      "jumpToBookmarkedMeet": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+7",
+          "mac": "MacCtrl+Shift+7"
+        },
+        "description": "Jumps to the bookmarked meet url if no meet is open. Sets the current meet as bookmarked if a meet is open.",
         "global": true
       }
     }
